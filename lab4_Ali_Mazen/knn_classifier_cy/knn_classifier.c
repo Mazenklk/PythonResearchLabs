@@ -2928,7 +2928,6 @@ static const char __pyx_k__23[] = "?";
 static const char __pyx_k_abc[] = "abc";
 static const char __pyx_k_and[] = " and ";
 static const char __pyx_k_got[] = " (got ";
-static const char __pyx_k_int[] = "int_";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_obj[] = "obj";
 static const char __pyx_k_sys[] = "sys";
@@ -2953,6 +2952,7 @@ static const char __pyx_k_dtype[] = "dtype";
 static const char __pyx_k_error[] = "error";
 static const char __pyx_k_flags[] = "flags";
 static const char __pyx_k_index[] = "index";
+static const char __pyx_k_int32[] = "int32";
 static const char __pyx_k_label[] = "label";
 static const char __pyx_k_numpy[] = "numpy";
 static const char __pyx_k_order[] = "order";
@@ -3228,7 +3228,7 @@ typedef struct {
   PyObject *__pyx_n_s_import;
   PyObject *__pyx_n_s_index;
   PyObject *__pyx_n_s_initializing;
-  PyObject *__pyx_n_s_int;
+  PyObject *__pyx_n_s_int32;
   PyObject *__pyx_n_s_is_coroutine;
   PyObject *__pyx_kp_u_isenabled;
   PyObject *__pyx_n_s_itemsize;
@@ -3451,7 +3451,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_import);
   Py_CLEAR(clear_module_state->__pyx_n_s_index);
   Py_CLEAR(clear_module_state->__pyx_n_s_initializing);
-  Py_CLEAR(clear_module_state->__pyx_n_s_int);
+  Py_CLEAR(clear_module_state->__pyx_n_s_int32);
   Py_CLEAR(clear_module_state->__pyx_n_s_is_coroutine);
   Py_CLEAR(clear_module_state->__pyx_kp_u_isenabled);
   Py_CLEAR(clear_module_state->__pyx_n_s_itemsize);
@@ -3652,7 +3652,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_import);
   Py_VISIT(traverse_module_state->__pyx_n_s_index);
   Py_VISIT(traverse_module_state->__pyx_n_s_initializing);
-  Py_VISIT(traverse_module_state->__pyx_n_s_int);
+  Py_VISIT(traverse_module_state->__pyx_n_s_int32);
   Py_VISIT(traverse_module_state->__pyx_n_s_is_coroutine);
   Py_VISIT(traverse_module_state->__pyx_kp_u_isenabled);
   Py_VISIT(traverse_module_state->__pyx_n_s_itemsize);
@@ -3869,7 +3869,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_import __pyx_mstate_global->__pyx_n_s_import
 #define __pyx_n_s_index __pyx_mstate_global->__pyx_n_s_index
 #define __pyx_n_s_initializing __pyx_mstate_global->__pyx_n_s_initializing
-#define __pyx_n_s_int __pyx_mstate_global->__pyx_n_s_int
+#define __pyx_n_s_int32 __pyx_mstate_global->__pyx_n_s_int32
 #define __pyx_n_s_is_coroutine __pyx_mstate_global->__pyx_n_s_is_coroutine
 #define __pyx_kp_u_isenabled __pyx_mstate_global->__pyx_kp_u_isenabled
 #define __pyx_n_s_itemsize __pyx_mstate_global->__pyx_n_s_itemsize
@@ -17758,7 +17758,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
   int __pyx_v_n;
   PyObject *__pyx_v_dtype = NULL;
   PyObject *__pyx_v_distances = NULL;
-  int __pyx_v_i;
+  Py_ssize_t __pyx_v_i;
   float __pyx_v_dx;
   float __pyx_v_dy;
   float __pyx_v_d;
@@ -17772,7 +17772,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
   PyObject *__pyx_t_4 = NULL;
   int __pyx_t_5;
   int __pyx_t_6;
-  int __pyx_t_7;
+  Py_ssize_t __pyx_t_7;
   Py_ssize_t __pyx_t_8;
   int __pyx_t_9;
   Py_ssize_t __pyx_t_10;
@@ -17791,7 +17791,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
  * def KNN(x: cython.float[:], k: cython.int, training_features: cython.float[:, :], training_labels: cython.int[:]):
  *     n: cython.int
  *     n = training_features.shape[0]             # <<<<<<<<<<<<<<
- *     dtype = [('label', np.int_), ('distance', np.float64)]
+ *     dtype = [('label', np.int32), ('distance', np.float64)]
  *     distances = np.zeros(n, dtype=dtype)
  */
   __pyx_v_n = (__pyx_v_training_features.shape[0]);
@@ -17799,13 +17799,13 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
   /* "knn_classifier.py":7
  *     n: cython.int
  *     n = training_features.shape[0]
- *     dtype = [('label', np.int_), ('distance', np.float64)]             # <<<<<<<<<<<<<<
+ *     dtype = [('label', np.int32), ('distance', np.float64)]             # <<<<<<<<<<<<<<
  *     distances = np.zeros(n, dtype=dtype)
- *     i: cython.int
+ *     i: cython.Py_ssize_t
  */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_int); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_int32); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
@@ -17842,9 +17842,9 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
 
   /* "knn_classifier.py":8
  *     n = training_features.shape[0]
- *     dtype = [('label', np.int_), ('distance', np.float64)]
+ *     dtype = [('label', np.int32), ('distance', np.float64)]
  *     distances = np.zeros(n, dtype=dtype)             # <<<<<<<<<<<<<<
- *     i: cython.int
+ *     i: cython.Py_ssize_t
  *     dx: cython.float
  */
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 8, __pyx_L1_error)
@@ -17955,7 +17955,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
  *         dy = x[1] - training_features[i, 1]
  *         d = (dx**2 + dy**2) ** 0.5             # <<<<<<<<<<<<<<
  *         distances = np.append(distances, np.array([(training_labels[i], d)], dtype=dtype))
- *     dtype = [('label', np.int_), ('distance', np.float64)]
+ *     dtype = [('label', np.int32), ('distance', np.float64)]
  */
     __pyx_v_d = pow(((double)(powf(__pyx_v_dx, 2.0) + powf(__pyx_v_dy, 2.0))), 0.5);
 
@@ -17963,7 +17963,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
  *         dy = x[1] - training_features[i, 1]
  *         d = (dx**2 + dy**2) ** 0.5
  *         distances = np.append(distances, np.array([(training_labels[i], d)], dtype=dtype))             # <<<<<<<<<<<<<<
- *     dtype = [('label', np.int_), ('distance', np.float64)]
+ *     dtype = [('label', np.int32), ('distance', np.float64)]
  *     sorted = np.sort(distances, order='distance')
  */
     __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
@@ -18046,13 +18046,13 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
   /* "knn_classifier.py":18
  *         d = (dx**2 + dy**2) ** 0.5
  *         distances = np.append(distances, np.array([(training_labels[i], d)], dtype=dtype))
- *     dtype = [('label', np.int_), ('distance', np.float64)]             # <<<<<<<<<<<<<<
+ *     dtype = [('label', np.int32), ('distance', np.float64)]             # <<<<<<<<<<<<<<
  *     sorted = np.sort(distances, order='distance')
- *     classes = np.zeros(2, dtype=np.int_)
+ *     classes = np.zeros(2, dtype=np.int32)
  */
   __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
@@ -18089,9 +18089,9 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
 
   /* "knn_classifier.py":19
  *         distances = np.append(distances, np.array([(training_labels[i], d)], dtype=dtype))
- *     dtype = [('label', np.int_), ('distance', np.float64)]
+ *     dtype = [('label', np.int32), ('distance', np.float64)]
  *     sorted = np.sort(distances, order='distance')             # <<<<<<<<<<<<<<
- *     classes = np.zeros(2, dtype=np.int_)
+ *     classes = np.zeros(2, dtype=np.int32)
  *     for i in range(k):
  */
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
@@ -18116,9 +18116,9 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_t_12 = 0;
 
   /* "knn_classifier.py":20
- *     dtype = [('label', np.int_), ('distance', np.float64)]
+ *     dtype = [('label', np.int32), ('distance', np.float64)]
  *     sorted = np.sort(distances, order='distance')
- *     classes = np.zeros(2, dtype=np.int_)             # <<<<<<<<<<<<<<
+ *     classes = np.zeros(2, dtype=np.int32)             # <<<<<<<<<<<<<<
  *     for i in range(k):
  *         if sorted[i]['label'] == 1:
  */
@@ -18131,7 +18131,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_int); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_int32); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (PyDict_SetItem(__pyx_t_12, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
@@ -18145,7 +18145,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
 
   /* "knn_classifier.py":21
  *     sorted = np.sort(distances, order='distance')
- *     classes = np.zeros(2, dtype=np.int_)
+ *     classes = np.zeros(2, dtype=np.int32)
  *     for i in range(k):             # <<<<<<<<<<<<<<
  *         if sorted[i]['label'] == 1:
  *             classes[0] += 1
@@ -18156,13 +18156,13 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
     __pyx_v_i = __pyx_t_7;
 
     /* "knn_classifier.py":22
- *     classes = np.zeros(2, dtype=np.int_)
+ *     classes = np.zeros(2, dtype=np.int32)
  *     for i in range(k):
  *         if sorted[i]['label'] == 1:             # <<<<<<<<<<<<<<
  *             classes[0] += 1
  *         else:
  */
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_sorted, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_sorted, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_12 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_u_label); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 22, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
@@ -18188,7 +18188,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
       /* "knn_classifier.py":22
- *     classes = np.zeros(2, dtype=np.int_)
+ *     classes = np.zeros(2, dtype=np.int32)
  *     for i in range(k):
  *         if sorted[i]['label'] == 1:             # <<<<<<<<<<<<<<
  *             classes[0] += 1
@@ -18255,7 +18255,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
  *         return 1
  *     else:
  *         return 2             # <<<<<<<<<<<<<<
- * 
+ *     return 0
  * 
  */
   /*else*/ {
@@ -19353,7 +19353,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
     {&__pyx_n_s_index, __pyx_k_index, sizeof(__pyx_k_index), 0, 0, 1, 1},
     {&__pyx_n_s_initializing, __pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 0, 1, 1},
-    {&__pyx_n_s_int, __pyx_k_int, sizeof(__pyx_k_int), 0, 0, 1, 1},
+    {&__pyx_n_s_int32, __pyx_k_int32, sizeof(__pyx_k_int32), 0, 0, 1, 1},
     {&__pyx_n_s_is_coroutine, __pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 0, 1, 1},
     {&__pyx_kp_u_isenabled, __pyx_k_isenabled, sizeof(__pyx_k_isenabled), 0, 1, 0, 0},
     {&__pyx_n_s_itemsize, __pyx_k_itemsize, sizeof(__pyx_k_itemsize), 0, 0, 1, 1},
@@ -19478,9 +19478,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__8);
 
   /* "knn_classifier.py":20
- *     dtype = [('label', np.int_), ('distance', np.float64)]
+ *     dtype = [('label', np.int32), ('distance', np.float64)]
  *     sorted = np.sort(distances, order='distance')
- *     classes = np.zeros(2, dtype=np.int_)             # <<<<<<<<<<<<<<
+ *     classes = np.zeros(2, dtype=np.int32)             # <<<<<<<<<<<<<<
  *     for i in range(k):
  *         if sorted[i]['label'] == 1:
  */

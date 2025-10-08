@@ -4,9 +4,9 @@ import cython
 def KNN(x: cython.float[:], k: cython.int, training_features: cython.float[:, :], training_labels: cython.int[:]):
     n: cython.int
     n = training_features.shape[0]
-    dtype = [('label', np.int_), ('distance', np.float64)]
+    dtype = [('label', np.int32), ('distance', np.float64)]
     distances = np.zeros(n, dtype=dtype)
-    i: cython.int
+    i: cython.Py_ssize_t
     dx: cython.float
     dy: cython.float
     d: cython.float
@@ -15,9 +15,9 @@ def KNN(x: cython.float[:], k: cython.int, training_features: cython.float[:, :]
         dy = x[1] - training_features[i, 1]
         d = (dx**2 + dy**2) ** 0.5
         distances = np.append(distances, np.array([(training_labels[i], d)], dtype=dtype))
-    dtype = [('label', np.int_), ('distance', np.float64)]
+    dtype = [('label', np.int32), ('distance', np.float64)]
     sorted = np.sort(distances, order='distance')            
-    classes = np.zeros(2, dtype=np.int_)
+    classes = np.zeros(2, dtype=np.int32)
     for i in range(k):
         if sorted[i]['label'] == 1:
             classes[0] += 1
@@ -27,5 +27,6 @@ def KNN(x: cython.float[:], k: cython.int, training_features: cython.float[:, :]
         return 1
     else: 
         return 2   
+    return 0
 
 

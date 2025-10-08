@@ -1,14 +1,8 @@
-from distutils.core import setup
-from distutils.extension import Extension
-
-import numpy
+from setuptools import setup
 from Cython.Build import cythonize
-
-extensions = [
-    Extension("knn_classifier", ["knn_classifier.py"], include_dirs=[numpy.get_include()]),
-]
+import numpy
 
 setup(
-    name="knn_classifier",
-    ext_modules=cythonize(extensions, annotate=True, language_level="3"),
+    ext_modules=cythonize("knn_classifier.pyx", language_level=3),
+    include_dirs=[numpy.get_include()],
 )
