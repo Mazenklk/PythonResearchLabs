@@ -8,7 +8,7 @@
         ],
         "name": "knn_classifier",
         "sources": [
-            "knn_classifier.pyx"
+            "knn_classifier.py"
         ]
     },
     "module_name": "knn_classifier"
@@ -1507,7 +1507,7 @@ static const char *__pyx_filename;
 /* #### Code section: filename_table ### */
 
 static const char *__pyx_f[] = {
-  "knn_classifier.pyx",
+  "knn_classifier.py",
   "<stringsource>",
 };
 /* #### Code section: utility_code_proto_before_types ### */
@@ -2687,7 +2687,7 @@ static int __Pyx_ValidateAndInit_memviewslice(
                 PyObject *original_obj);
 
 /* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_float(PyObject *, int writable_flag);
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_ds_float(PyObject *, int writable_flag);
 
 /* ObjectToMemviewSlice.proto */
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsds_float(PyObject *, int writable_flag);
@@ -2928,7 +2928,7 @@ static const char __pyx_k__23[] = "?";
 static const char __pyx_k_abc[] = "abc";
 static const char __pyx_k_and[] = " and ";
 static const char __pyx_k_got[] = " (got ";
-static const char __pyx_k_int[] = "int";
+static const char __pyx_k_int[] = "int_";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_obj[] = "obj";
 static const char __pyx_k_sys[] = "sys";
@@ -2953,7 +2953,6 @@ static const char __pyx_k_dtype[] = "dtype";
 static const char __pyx_k_error[] = "error";
 static const char __pyx_k_flags[] = "flags";
 static const char __pyx_k_index[] = "index";
-static const char __pyx_k_int64[] = "int64";
 static const char __pyx_k_label[] = "label";
 static const char __pyx_k_numpy[] = "numpy";
 static const char __pyx_k_order[] = "order";
@@ -2994,11 +2993,14 @@ static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
 static const char __pyx_k_IndexError[] = "IndexError";
 static const char __pyx_k_ValueError[] = "ValueError";
+static const char __pyx_k_cython_int[] = "cython.int";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
 static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_MemoryError[] = "MemoryError";
 static const char __pyx_k_PickleError[] = "PickleError";
 static const char __pyx_k_collections[] = "collections";
+static const char __pyx_k_cython_float[] = "cython.float[:]";
+static const char __pyx_k_cython_int_2[] = "cython.int[:]";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
@@ -3007,6 +3009,7 @@ static const char __pyx_k_version_info[] = "version_info";
 static const char __pyx_k_class_getitem[] = "__class_getitem__";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_AssertionError[] = "AssertionError";
+static const char __pyx_k_cython_float_2[] = "cython.float[:, :]";
 static const char __pyx_k_knn_classifier[] = "knn_classifier";
 static const char __pyx_k_View_MemoryView[] = "View.MemoryView";
 static const char __pyx_k_allocate_buffer[] = "allocate_buffer";
@@ -3015,11 +3018,11 @@ static const char __pyx_k_dtype_is_object[] = "dtype_is_object";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
 static const char __pyx_k_training_labels[] = "training_labels";
+static const char __pyx_k_knn_classifier_py[] = "knn_classifier.py";
 static const char __pyx_k_pyx_unpickle_Enum[] = "__pyx_unpickle_Enum";
 static const char __pyx_k_training_features[] = "training_features";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_knn_classifier_pyx[] = "knn_classifier.pyx";
 static const char __pyx_k_strided_and_direct[] = "<strided and direct>";
 static const char __pyx_k_strided_and_indirect[] = "<strided and indirect>";
 static const char __pyx_k_Invalid_shape_in_axis[] = "Invalid shape in axis ";
@@ -3194,6 +3197,10 @@ typedef struct {
   PyObject *__pyx_kp_s_contiguous_and_direct;
   PyObject *__pyx_kp_s_contiguous_and_indirect;
   PyObject *__pyx_n_s_count;
+  PyObject *__pyx_kp_s_cython_float;
+  PyObject *__pyx_kp_s_cython_float_2;
+  PyObject *__pyx_kp_s_cython_int;
+  PyObject *__pyx_kp_s_cython_int_2;
   PyObject *__pyx_n_s_d;
   PyObject *__pyx_n_s_dict;
   PyObject *__pyx_kp_u_disable;
@@ -3222,14 +3229,13 @@ typedef struct {
   PyObject *__pyx_n_s_index;
   PyObject *__pyx_n_s_initializing;
   PyObject *__pyx_n_s_int;
-  PyObject *__pyx_n_s_int64;
   PyObject *__pyx_n_s_is_coroutine;
   PyObject *__pyx_kp_u_isenabled;
   PyObject *__pyx_n_s_itemsize;
   PyObject *__pyx_kp_s_itemsize_0_for_cython_array;
   PyObject *__pyx_n_s_k;
   PyObject *__pyx_n_s_knn_classifier;
-  PyObject *__pyx_kp_s_knn_classifier_pyx;
+  PyObject *__pyx_kp_s_knn_classifier_py;
   PyObject *__pyx_n_u_label;
   PyObject *__pyx_n_s_main;
   PyObject *__pyx_n_s_memview;
@@ -3414,6 +3420,10 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_kp_s_contiguous_and_direct);
   Py_CLEAR(clear_module_state->__pyx_kp_s_contiguous_and_indirect);
   Py_CLEAR(clear_module_state->__pyx_n_s_count);
+  Py_CLEAR(clear_module_state->__pyx_kp_s_cython_float);
+  Py_CLEAR(clear_module_state->__pyx_kp_s_cython_float_2);
+  Py_CLEAR(clear_module_state->__pyx_kp_s_cython_int);
+  Py_CLEAR(clear_module_state->__pyx_kp_s_cython_int_2);
   Py_CLEAR(clear_module_state->__pyx_n_s_d);
   Py_CLEAR(clear_module_state->__pyx_n_s_dict);
   Py_CLEAR(clear_module_state->__pyx_kp_u_disable);
@@ -3442,14 +3452,13 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_index);
   Py_CLEAR(clear_module_state->__pyx_n_s_initializing);
   Py_CLEAR(clear_module_state->__pyx_n_s_int);
-  Py_CLEAR(clear_module_state->__pyx_n_s_int64);
   Py_CLEAR(clear_module_state->__pyx_n_s_is_coroutine);
   Py_CLEAR(clear_module_state->__pyx_kp_u_isenabled);
   Py_CLEAR(clear_module_state->__pyx_n_s_itemsize);
   Py_CLEAR(clear_module_state->__pyx_kp_s_itemsize_0_for_cython_array);
   Py_CLEAR(clear_module_state->__pyx_n_s_k);
   Py_CLEAR(clear_module_state->__pyx_n_s_knn_classifier);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_knn_classifier_pyx);
+  Py_CLEAR(clear_module_state->__pyx_kp_s_knn_classifier_py);
   Py_CLEAR(clear_module_state->__pyx_n_u_label);
   Py_CLEAR(clear_module_state->__pyx_n_s_main);
   Py_CLEAR(clear_module_state->__pyx_n_s_memview);
@@ -3612,6 +3621,10 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_kp_s_contiguous_and_direct);
   Py_VISIT(traverse_module_state->__pyx_kp_s_contiguous_and_indirect);
   Py_VISIT(traverse_module_state->__pyx_n_s_count);
+  Py_VISIT(traverse_module_state->__pyx_kp_s_cython_float);
+  Py_VISIT(traverse_module_state->__pyx_kp_s_cython_float_2);
+  Py_VISIT(traverse_module_state->__pyx_kp_s_cython_int);
+  Py_VISIT(traverse_module_state->__pyx_kp_s_cython_int_2);
   Py_VISIT(traverse_module_state->__pyx_n_s_d);
   Py_VISIT(traverse_module_state->__pyx_n_s_dict);
   Py_VISIT(traverse_module_state->__pyx_kp_u_disable);
@@ -3640,14 +3653,13 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_index);
   Py_VISIT(traverse_module_state->__pyx_n_s_initializing);
   Py_VISIT(traverse_module_state->__pyx_n_s_int);
-  Py_VISIT(traverse_module_state->__pyx_n_s_int64);
   Py_VISIT(traverse_module_state->__pyx_n_s_is_coroutine);
   Py_VISIT(traverse_module_state->__pyx_kp_u_isenabled);
   Py_VISIT(traverse_module_state->__pyx_n_s_itemsize);
   Py_VISIT(traverse_module_state->__pyx_kp_s_itemsize_0_for_cython_array);
   Py_VISIT(traverse_module_state->__pyx_n_s_k);
   Py_VISIT(traverse_module_state->__pyx_n_s_knn_classifier);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_knn_classifier_pyx);
+  Py_VISIT(traverse_module_state->__pyx_kp_s_knn_classifier_py);
   Py_VISIT(traverse_module_state->__pyx_n_u_label);
   Py_VISIT(traverse_module_state->__pyx_n_s_main);
   Py_VISIT(traverse_module_state->__pyx_n_s_memview);
@@ -3826,6 +3838,10 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_kp_s_contiguous_and_direct __pyx_mstate_global->__pyx_kp_s_contiguous_and_direct
 #define __pyx_kp_s_contiguous_and_indirect __pyx_mstate_global->__pyx_kp_s_contiguous_and_indirect
 #define __pyx_n_s_count __pyx_mstate_global->__pyx_n_s_count
+#define __pyx_kp_s_cython_float __pyx_mstate_global->__pyx_kp_s_cython_float
+#define __pyx_kp_s_cython_float_2 __pyx_mstate_global->__pyx_kp_s_cython_float_2
+#define __pyx_kp_s_cython_int __pyx_mstate_global->__pyx_kp_s_cython_int
+#define __pyx_kp_s_cython_int_2 __pyx_mstate_global->__pyx_kp_s_cython_int_2
 #define __pyx_n_s_d __pyx_mstate_global->__pyx_n_s_d
 #define __pyx_n_s_dict __pyx_mstate_global->__pyx_n_s_dict
 #define __pyx_kp_u_disable __pyx_mstate_global->__pyx_kp_u_disable
@@ -3854,14 +3870,13 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_index __pyx_mstate_global->__pyx_n_s_index
 #define __pyx_n_s_initializing __pyx_mstate_global->__pyx_n_s_initializing
 #define __pyx_n_s_int __pyx_mstate_global->__pyx_n_s_int
-#define __pyx_n_s_int64 __pyx_mstate_global->__pyx_n_s_int64
 #define __pyx_n_s_is_coroutine __pyx_mstate_global->__pyx_n_s_is_coroutine
 #define __pyx_kp_u_isenabled __pyx_mstate_global->__pyx_kp_u_isenabled
 #define __pyx_n_s_itemsize __pyx_mstate_global->__pyx_n_s_itemsize
 #define __pyx_kp_s_itemsize_0_for_cython_array __pyx_mstate_global->__pyx_kp_s_itemsize_0_for_cython_array
 #define __pyx_n_s_k __pyx_mstate_global->__pyx_n_s_k
 #define __pyx_n_s_knn_classifier __pyx_mstate_global->__pyx_n_s_knn_classifier
-#define __pyx_kp_s_knn_classifier_pyx __pyx_mstate_global->__pyx_kp_s_knn_classifier_pyx
+#define __pyx_kp_s_knn_classifier_py __pyx_mstate_global->__pyx_kp_s_knn_classifier_py
 #define __pyx_n_u_label __pyx_mstate_global->__pyx_n_u_label
 #define __pyx_n_s_main __pyx_mstate_global->__pyx_n_s_main
 #define __pyx_n_s_memview __pyx_mstate_global->__pyx_n_s_memview
@@ -17571,12 +17586,12 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *__
   return __pyx_r;
 }
 
-/* "knn_classifier.pyx":4
- * cimport cython
+/* "knn_classifier.py":4
+ * import cython
  * 
- * def KNN(float[::1] x, int k, float[:, :] training_features, int[:] training_labels):             # <<<<<<<<<<<<<<
- *     cdef int n = training_features.shape[0]
- *     dtype = [('label', np.int64), ('distance', np.float64)]
+ * def KNN(x: cython.float[:], k: cython.int, training_features: cython.float[:, :], training_labels: cython.int[:]):             # <<<<<<<<<<<<<<
+ *     n: cython.int
+ *     n = training_features.shape[0]
  */
 
 /* Python wrapper */
@@ -17686,7 +17701,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
       values[3] = __Pyx_Arg_FASTCALL(__pyx_args, 3);
     }
-    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_dc_float(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 4, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyObject_to_MemoryviewSlice_ds_float(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_x.memview)) __PYX_ERR(0, 4, __pyx_L3_error)
     __pyx_v_k = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_k == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 4, __pyx_L3_error)
     __pyx_v_training_features = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_training_features.memview)) __PYX_ERR(0, 4, __pyx_L3_error)
     __pyx_v_training_labels = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_training_labels.memview)) __PYX_ERR(0, 4, __pyx_L3_error)
@@ -17710,9 +17725,22 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
+  if (unlikely(((PyObject *)__pyx_v_x.memview) == Py_None)) {
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "x"); __PYX_ERR(0, 4, __pyx_L1_error)
+  }
+  if (unlikely(((PyObject *)__pyx_v_training_features.memview) == Py_None)) {
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "training_features"); __PYX_ERR(0, 4, __pyx_L1_error)
+  }
+  if (unlikely(((PyObject *)__pyx_v_training_labels.memview) == Py_None)) {
+    PyErr_Format(PyExc_TypeError, "Argument '%.200s' must not be None", "training_labels"); __PYX_ERR(0, 4, __pyx_L1_error)
+  }
   __pyx_r = __pyx_pf_14knn_classifier_KNN(__pyx_self, __pyx_v_x, __pyx_v_k, __pyx_v_training_features, __pyx_v_training_labels);
 
   /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_x, 1);
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_training_features, 1);
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_training_labels, 1);
@@ -17759,82 +17787,82 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("KNN", 1);
 
-  /* "knn_classifier.pyx":5
- * 
- * def KNN(float[::1] x, int k, float[:, :] training_features, int[:] training_labels):
- *     cdef int n = training_features.shape[0]             # <<<<<<<<<<<<<<
- *     dtype = [('label', np.int64), ('distance', np.float64)]
+  /* "knn_classifier.py":6
+ * def KNN(x: cython.float[:], k: cython.int, training_features: cython.float[:, :], training_labels: cython.int[:]):
+ *     n: cython.int
+ *     n = training_features.shape[0]             # <<<<<<<<<<<<<<
+ *     dtype = [('label', np.int_), ('distance', np.float64)]
  *     distances = np.zeros(n, dtype=dtype)
  */
   __pyx_v_n = (__pyx_v_training_features.shape[0]);
 
-  /* "knn_classifier.pyx":6
- * def KNN(float[::1] x, int k, float[:, :] training_features, int[:] training_labels):
- *     cdef int n = training_features.shape[0]
- *     dtype = [('label', np.int64), ('distance', np.float64)]             # <<<<<<<<<<<<<<
+  /* "knn_classifier.py":7
+ *     n: cython.int
+ *     n = training_features.shape[0]
+ *     dtype = [('label', np.int_), ('distance', np.float64)]             # <<<<<<<<<<<<<<
  *     distances = np.zeros(n, dtype=dtype)
- *     cdef int i
+ *     i: cython.int
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_int64); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_int); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_u_label);
   __Pyx_GIVEREF(__pyx_n_u_label);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_u_label)) __PYX_ERR(0, 6, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_u_label)) __PYX_ERR(0, 7, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error);
   __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_float64); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_float64); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_u_distance);
   __Pyx_GIVEREF(__pyx_n_u_distance);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_n_u_distance)) __PYX_ERR(0, 6, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_n_u_distance)) __PYX_ERR(0, 7, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_3)) __PYX_ERR(0, 6, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
   __pyx_v_dtype = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "knn_classifier.pyx":7
- *     cdef int n = training_features.shape[0]
- *     dtype = [('label', np.int64), ('distance', np.float64)]
+  /* "knn_classifier.py":8
+ *     n = training_features.shape[0]
+ *     dtype = [('label', np.int_), ('distance', np.float64)]
  *     distances = np.zeros(n, dtype=dtype)             # <<<<<<<<<<<<<<
- *     cdef int i
- *     cdef float dx, dy, d
+ *     i: cython.int
+ *     dx: cython.float
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3)) __PYX_ERR(0, 8, __pyx_L1_error);
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_v_dtype) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 7, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_v_dtype) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -17842,9 +17870,9 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_v_distances = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "knn_classifier.pyx":10
- *     cdef int i
- *     cdef float dx, dy, d
+  /* "knn_classifier.py":13
+ *     dy: cython.float
+ *     d: cython.float
  *     for i in range(n):             # <<<<<<<<<<<<<<
  *         dx = x[0] - training_features[i, 0]
  *         dy = x[1] - training_features[i, 1]
@@ -17854,8 +17882,8 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "knn_classifier.pyx":11
- *     cdef float dx, dy, d
+    /* "knn_classifier.py":14
+ *     d: cython.float
  *     for i in range(n):
  *         dx = x[0] - training_features[i, 0]             # <<<<<<<<<<<<<<
  *         dy = x[1] - training_features[i, 1]
@@ -17869,7 +17897,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
     } else if (unlikely(__pyx_t_8 >= __pyx_v_x.shape[0])) __pyx_t_9 = 0;
     if (unlikely(__pyx_t_9 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_9);
-      __PYX_ERR(0, 11, __pyx_L1_error)
+      __PYX_ERR(0, 14, __pyx_L1_error)
     }
     __pyx_t_10 = __pyx_v_i;
     __pyx_t_11 = 0;
@@ -17884,11 +17912,11 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
     } else if (unlikely(__pyx_t_11 >= __pyx_v_training_features.shape[1])) __pyx_t_9 = 1;
     if (unlikely(__pyx_t_9 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_9);
-      __PYX_ERR(0, 11, __pyx_L1_error)
+      __PYX_ERR(0, 14, __pyx_L1_error)
     }
-    __pyx_v_dx = ((*((float *) ( /* dim=0 */ ((char *) (((float *) __pyx_v_x.data) + __pyx_t_8)) ))) - (*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_training_features.data + __pyx_t_10 * __pyx_v_training_features.strides[0]) ) + __pyx_t_11 * __pyx_v_training_features.strides[1]) ))));
+    __pyx_v_dx = ((*((float *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_8 * __pyx_v_x.strides[0]) ))) - (*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_training_features.data + __pyx_t_10 * __pyx_v_training_features.strides[0]) ) + __pyx_t_11 * __pyx_v_training_features.strides[1]) ))));
 
-    /* "knn_classifier.pyx":12
+    /* "knn_classifier.py":15
  *     for i in range(n):
  *         dx = x[0] - training_features[i, 0]
  *         dy = x[1] - training_features[i, 1]             # <<<<<<<<<<<<<<
@@ -17903,7 +17931,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
     } else if (unlikely(__pyx_t_11 >= __pyx_v_x.shape[0])) __pyx_t_9 = 0;
     if (unlikely(__pyx_t_9 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_9);
-      __PYX_ERR(0, 12, __pyx_L1_error)
+      __PYX_ERR(0, 15, __pyx_L1_error)
     }
     __pyx_t_10 = __pyx_v_i;
     __pyx_t_8 = 1;
@@ -17918,34 +17946,34 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
     } else if (unlikely(__pyx_t_8 >= __pyx_v_training_features.shape[1])) __pyx_t_9 = 1;
     if (unlikely(__pyx_t_9 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_9);
-      __PYX_ERR(0, 12, __pyx_L1_error)
+      __PYX_ERR(0, 15, __pyx_L1_error)
     }
-    __pyx_v_dy = ((*((float *) ( /* dim=0 */ ((char *) (((float *) __pyx_v_x.data) + __pyx_t_11)) ))) - (*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_training_features.data + __pyx_t_10 * __pyx_v_training_features.strides[0]) ) + __pyx_t_8 * __pyx_v_training_features.strides[1]) ))));
+    __pyx_v_dy = ((*((float *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_11 * __pyx_v_x.strides[0]) ))) - (*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_training_features.data + __pyx_t_10 * __pyx_v_training_features.strides[0]) ) + __pyx_t_8 * __pyx_v_training_features.strides[1]) ))));
 
-    /* "knn_classifier.pyx":13
+    /* "knn_classifier.py":16
  *         dx = x[0] - training_features[i, 0]
  *         dy = x[1] - training_features[i, 1]
  *         d = (dx**2 + dy**2) ** 0.5             # <<<<<<<<<<<<<<
  *         distances = np.append(distances, np.array([(training_labels[i], d)], dtype=dtype))
- *     dtype = [('label', np.int64), ('distance', np.float64)]
+ *     dtype = [('label', np.int_), ('distance', np.float64)]
  */
     __pyx_v_d = pow(((double)(powf(__pyx_v_dx, 2.0) + powf(__pyx_v_dy, 2.0))), 0.5);
 
-    /* "knn_classifier.pyx":14
+    /* "knn_classifier.py":17
  *         dy = x[1] - training_features[i, 1]
  *         d = (dx**2 + dy**2) ** 0.5
  *         distances = np.append(distances, np.array([(training_labels[i], d)], dtype=dtype))             # <<<<<<<<<<<<<<
- *     dtype = [('label', np.int64), ('distance', np.float64)]
+ *     dtype = [('label', np.int_), ('distance', np.float64)]
  *     sorted = np.sort(distances, order='distance')
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_append); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_append); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_array); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_array); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_8 = __pyx_v_i;
@@ -17956,34 +17984,34 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
     } else if (unlikely(__pyx_t_8 >= __pyx_v_training_labels.shape[0])) __pyx_t_9 = 0;
     if (unlikely(__pyx_t_9 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_9);
-      __PYX_ERR(0, 14, __pyx_L1_error)
+      __PYX_ERR(0, 17, __pyx_L1_error)
     }
-    __pyx_t_3 = __Pyx_PyInt_From_int((*((int *) ( /* dim=0 */ (__pyx_v_training_labels.data + __pyx_t_8 * __pyx_v_training_labels.strides[0]) )))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_From_int((*((int *) ( /* dim=0 */ (__pyx_v_training_labels.data + __pyx_t_8 * __pyx_v_training_labels.strides[0]) )))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_12 = PyFloat_FromDouble(__pyx_v_d); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_12 = PyFloat_FromDouble(__pyx_v_d); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    __pyx_t_13 = PyTuple_New(2); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_13 = PyTuple_New(2); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
     __Pyx_GIVEREF(__pyx_t_3);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_13, 0, __pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_13, 0, __pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error);
     __Pyx_GIVEREF(__pyx_t_12);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_13, 1, __pyx_t_12)) __PYX_ERR(0, 14, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_13, 1, __pyx_t_12)) __PYX_ERR(0, 17, __pyx_L1_error);
     __pyx_t_3 = 0;
     __pyx_t_12 = 0;
-    __pyx_t_12 = PyList_New(1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_12 = PyList_New(1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __Pyx_GIVEREF(__pyx_t_13);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_12, 0, __pyx_t_13)) __PYX_ERR(0, 14, __pyx_L1_error);
+    if (__Pyx_PyList_SET_ITEM(__pyx_t_12, 0, __pyx_t_13)) __PYX_ERR(0, 17, __pyx_L1_error);
     __pyx_t_13 = 0;
-    __pyx_t_13 = PyTuple_New(1); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_13 = PyTuple_New(1); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
     __Pyx_GIVEREF(__pyx_t_12);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_13, 0, __pyx_t_12)) __PYX_ERR(0, 14, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_13, 0, __pyx_t_12)) __PYX_ERR(0, 17, __pyx_L1_error);
     __pyx_t_12 = 0;
-    __pyx_t_12 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    if (PyDict_SetItem(__pyx_t_12, __pyx_n_s_dtype, __pyx_v_dtype) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_13, __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_12, __pyx_n_s_dtype, __pyx_v_dtype) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_13, __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
@@ -18007,7 +18035,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
       __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_14, 2+__pyx_t_14);
       __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 14, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 17, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     }
@@ -18015,71 +18043,71 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
     __pyx_t_4 = 0;
   }
 
-  /* "knn_classifier.pyx":15
+  /* "knn_classifier.py":18
  *         d = (dx**2 + dy**2) ** 0.5
  *         distances = np.append(distances, np.array([(training_labels[i], d)], dtype=dtype))
- *     dtype = [('label', np.int64), ('distance', np.float64)]             # <<<<<<<<<<<<<<
+ *     dtype = [('label', np.int_), ('distance', np.float64)]             # <<<<<<<<<<<<<<
  *     sorted = np.sort(distances, order='distance')
- *     classes = np.zeros(2, dtype=np.int)
+ *     classes = np.zeros(2, dtype=np.int_)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int64); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_n_u_label);
   __Pyx_GIVEREF(__pyx_n_u_label);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_n_u_label)) __PYX_ERR(0, 15, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_n_u_label)) __PYX_ERR(0, 18, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error);
   __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_float64); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_float64); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_u_distance);
   __Pyx_GIVEREF(__pyx_n_u_distance);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_u_distance)) __PYX_ERR(0, 15, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_u_distance)) __PYX_ERR(0, 18, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_4)) __PYX_ERR(0, 15, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error);
   __pyx_t_4 = 0;
   __pyx_t_1 = 0;
   __Pyx_DECREF_SET(__pyx_v_dtype, ((PyObject*)__pyx_t_3));
   __pyx_t_3 = 0;
 
-  /* "knn_classifier.pyx":16
+  /* "knn_classifier.py":19
  *         distances = np.append(distances, np.array([(training_labels[i], d)], dtype=dtype))
- *     dtype = [('label', np.int64), ('distance', np.float64)]
+ *     dtype = [('label', np.int_), ('distance', np.float64)]
  *     sorted = np.sort(distances, order='distance')             # <<<<<<<<<<<<<<
- *     classes = np.zeros(2, dtype=np.int)
+ *     classes = np.zeros(2, dtype=np.int_)
  *     for i in range(k):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_sort); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v_distances);
   __Pyx_GIVEREF(__pyx_v_distances);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_distances)) __PYX_ERR(0, 16, __pyx_L1_error);
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_distances)) __PYX_ERR(0, 19, __pyx_L1_error);
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_order, __pyx_n_u_distance) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
-  __pyx_t_12 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_order, __pyx_n_u_distance) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -18087,37 +18115,37 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_v_sorted = __pyx_t_12;
   __pyx_t_12 = 0;
 
-  /* "knn_classifier.pyx":17
- *     dtype = [('label', np.int64), ('distance', np.float64)]
+  /* "knn_classifier.py":20
+ *     dtype = [('label', np.int_), ('distance', np.float64)]
  *     sorted = np.sort(distances, order='distance')
- *     classes = np.zeros(2, dtype=np.int)             # <<<<<<<<<<<<<<
+ *     classes = np.zeros(2, dtype=np.int_)             # <<<<<<<<<<<<<<
  *     for i in range(k):
  *         if sorted[i]['label'] == 1:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_np); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_np); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-  __pyx_t_12 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_int); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_int); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_12, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_12, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__9, __pyx_t_12); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__9, __pyx_t_12); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   __pyx_v_classes = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "knn_classifier.pyx":18
+  /* "knn_classifier.py":21
  *     sorted = np.sort(distances, order='distance')
- *     classes = np.zeros(2, dtype=np.int)
+ *     classes = np.zeros(2, dtype=np.int_)
  *     for i in range(k):             # <<<<<<<<<<<<<<
  *         if sorted[i]['label'] == 1:
  *             classes[0] += 1
@@ -18127,23 +18155,23 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "knn_classifier.pyx":19
- *     classes = np.zeros(2, dtype=np.int)
+    /* "knn_classifier.py":22
+ *     classes = np.zeros(2, dtype=np.int_)
  *     for i in range(k):
  *         if sorted[i]['label'] == 1:             # <<<<<<<<<<<<<<
  *             classes[0] += 1
  *         else:
  */
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_sorted, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_sorted, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_12 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_u_label); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 19, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_u_label); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 22, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_15 = (__Pyx_PyInt_BoolEqObjC(__pyx_t_12, __pyx_int_1, 1, 0)); if (unlikely((__pyx_t_15 < 0))) __PYX_ERR(0, 19, __pyx_L1_error)
+    __pyx_t_15 = (__Pyx_PyInt_BoolEqObjC(__pyx_t_12, __pyx_int_1, 1, 0)); if (unlikely((__pyx_t_15 < 0))) __PYX_ERR(0, 22, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     if (__pyx_t_15) {
 
-      /* "knn_classifier.pyx":20
+      /* "knn_classifier.py":23
  *     for i in range(k):
  *         if sorted[i]['label'] == 1:
  *             classes[0] += 1             # <<<<<<<<<<<<<<
@@ -18151,16 +18179,16 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
  *             classes[0]
  */
       __pyx_t_16 = 0;
-      __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_classes, __pyx_t_16, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 20, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_classes, __pyx_t_16, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 23, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_t_12, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_t_12, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-      if (unlikely((__Pyx_SetItemInt(__pyx_v_classes, __pyx_t_16, __pyx_t_1, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1) < 0))) __PYX_ERR(0, 20, __pyx_L1_error)
+      if (unlikely((__Pyx_SetItemInt(__pyx_v_classes, __pyx_t_16, __pyx_t_1, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1) < 0))) __PYX_ERR(0, 23, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "knn_classifier.pyx":19
- *     classes = np.zeros(2, dtype=np.int)
+      /* "knn_classifier.py":22
+ *     classes = np.zeros(2, dtype=np.int_)
  *     for i in range(k):
  *         if sorted[i]['label'] == 1:             # <<<<<<<<<<<<<<
  *             classes[0] += 1
@@ -18169,7 +18197,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
       goto __pyx_L7;
     }
 
-    /* "knn_classifier.pyx":22
+    /* "knn_classifier.py":25
  *             classes[0] += 1
  *         else:
  *             classes[0]             # <<<<<<<<<<<<<<
@@ -18177,32 +18205,32 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
  *         return 1
  */
     /*else*/ {
-      __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_classes, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_classes, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 25, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     }
     __pyx_L7:;
   }
 
-  /* "knn_classifier.pyx":23
+  /* "knn_classifier.py":26
  *         else:
  *             classes[0]
  *     if classes[0] > classes[1]:             # <<<<<<<<<<<<<<
  *         return 1
  *     else:
  */
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_classes, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_classes, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_classes, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_classes, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_1, __pyx_t_12, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_1, __pyx_t_12, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-  __pyx_t_15 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_15 < 0))) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_15 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_15 < 0))) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_15) {
 
-    /* "knn_classifier.pyx":24
+    /* "knn_classifier.py":27
  *             classes[0]
  *     if classes[0] > classes[1]:
  *         return 1             # <<<<<<<<<<<<<<
@@ -18214,7 +18242,7 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
     __pyx_r = __pyx_int_1;
     goto __pyx_L0;
 
-    /* "knn_classifier.pyx":23
+    /* "knn_classifier.py":26
  *         else:
  *             classes[0]
  *     if classes[0] > classes[1]:             # <<<<<<<<<<<<<<
@@ -18223,10 +18251,12 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
  */
   }
 
-  /* "knn_classifier.pyx":26
+  /* "knn_classifier.py":29
  *         return 1
  *     else:
  *         return 2             # <<<<<<<<<<<<<<
+ * 
+ * 
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
@@ -18235,12 +18265,12 @@ static PyObject *__pyx_pf_14knn_classifier_KNN(CYTHON_UNUSED PyObject *__pyx_sel
     goto __pyx_L0;
   }
 
-  /* "knn_classifier.pyx":4
- * cimport cython
+  /* "knn_classifier.py":4
+ * import cython
  * 
- * def KNN(float[::1] x, int k, float[:, :] training_features, int[:] training_labels):             # <<<<<<<<<<<<<<
- *     cdef int n = training_features.shape[0]
- *     dtype = [('label', np.int64), ('distance', np.float64)]
+ * def KNN(x: cython.float[:], k: cython.int, training_features: cython.float[:, :], training_labels: cython.int[:]):             # <<<<<<<<<<<<<<
+ *     n: cython.int
+ *     n = training_features.shape[0]
  */
 
   /* function exit code */
@@ -19292,6 +19322,10 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_kp_s_contiguous_and_direct, __pyx_k_contiguous_and_direct, sizeof(__pyx_k_contiguous_and_direct), 0, 0, 1, 0},
     {&__pyx_kp_s_contiguous_and_indirect, __pyx_k_contiguous_and_indirect, sizeof(__pyx_k_contiguous_and_indirect), 0, 0, 1, 0},
     {&__pyx_n_s_count, __pyx_k_count, sizeof(__pyx_k_count), 0, 0, 1, 1},
+    {&__pyx_kp_s_cython_float, __pyx_k_cython_float, sizeof(__pyx_k_cython_float), 0, 0, 1, 0},
+    {&__pyx_kp_s_cython_float_2, __pyx_k_cython_float_2, sizeof(__pyx_k_cython_float_2), 0, 0, 1, 0},
+    {&__pyx_kp_s_cython_int, __pyx_k_cython_int, sizeof(__pyx_k_cython_int), 0, 0, 1, 0},
+    {&__pyx_kp_s_cython_int_2, __pyx_k_cython_int_2, sizeof(__pyx_k_cython_int_2), 0, 0, 1, 0},
     {&__pyx_n_s_d, __pyx_k_d, sizeof(__pyx_k_d), 0, 0, 1, 1},
     {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
     {&__pyx_kp_u_disable, __pyx_k_disable, sizeof(__pyx_k_disable), 0, 1, 0, 0},
@@ -19320,14 +19354,13 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_index, __pyx_k_index, sizeof(__pyx_k_index), 0, 0, 1, 1},
     {&__pyx_n_s_initializing, __pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 0, 1, 1},
     {&__pyx_n_s_int, __pyx_k_int, sizeof(__pyx_k_int), 0, 0, 1, 1},
-    {&__pyx_n_s_int64, __pyx_k_int64, sizeof(__pyx_k_int64), 0, 0, 1, 1},
     {&__pyx_n_s_is_coroutine, __pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 0, 1, 1},
     {&__pyx_kp_u_isenabled, __pyx_k_isenabled, sizeof(__pyx_k_isenabled), 0, 1, 0, 0},
     {&__pyx_n_s_itemsize, __pyx_k_itemsize, sizeof(__pyx_k_itemsize), 0, 0, 1, 1},
     {&__pyx_kp_s_itemsize_0_for_cython_array, __pyx_k_itemsize_0_for_cython_array, sizeof(__pyx_k_itemsize_0_for_cython_array), 0, 0, 1, 0},
     {&__pyx_n_s_k, __pyx_k_k, sizeof(__pyx_k_k), 0, 0, 1, 1},
     {&__pyx_n_s_knn_classifier, __pyx_k_knn_classifier, sizeof(__pyx_k_knn_classifier), 0, 0, 1, 1},
-    {&__pyx_kp_s_knn_classifier_pyx, __pyx_k_knn_classifier_pyx, sizeof(__pyx_k_knn_classifier_pyx), 0, 0, 1, 0},
+    {&__pyx_kp_s_knn_classifier_py, __pyx_k_knn_classifier_py, sizeof(__pyx_k_knn_classifier_py), 0, 0, 1, 0},
     {&__pyx_n_u_label, __pyx_k_label, sizeof(__pyx_k_label), 0, 1, 0, 1},
     {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
     {&__pyx_n_s_memview, __pyx_k_memview, sizeof(__pyx_k_memview), 0, 0, 1, 1},
@@ -19388,7 +19421,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 13, __pyx_L1_error)
   __pyx_builtin___import__ = __Pyx_GetBuiltinName(__pyx_n_s_import); if (!__pyx_builtin___import__) __PYX_ERR(1, 100, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 141, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 156, __pyx_L1_error)
@@ -19444,14 +19477,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "knn_classifier.pyx":17
- *     dtype = [('label', np.int64), ('distance', np.float64)]
+  /* "knn_classifier.py":20
+ *     dtype = [('label', np.int_), ('distance', np.float64)]
  *     sorted = np.sort(distances, order='distance')
- *     classes = np.zeros(2, dtype=np.int)             # <<<<<<<<<<<<<<
+ *     classes = np.zeros(2, dtype=np.int_)             # <<<<<<<<<<<<<<
  *     for i in range(k):
  *         if sorted[i]['label'] == 1:
  */
-  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_int_2); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_int_2); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
@@ -19556,17 +19589,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__19);
   __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(1, 1, __pyx_L1_error)
 
-  /* "knn_classifier.pyx":4
- * cimport cython
+  /* "knn_classifier.py":4
+ * import cython
  * 
- * def KNN(float[::1] x, int k, float[:, :] training_features, int[:] training_labels):             # <<<<<<<<<<<<<<
- *     cdef int n = training_features.shape[0]
- *     dtype = [('label', np.int64), ('distance', np.float64)]
+ * def KNN(x: cython.float[:], k: cython.int, training_features: cython.float[:, :], training_labels: cython.int[:]):             # <<<<<<<<<<<<<<
+ *     n: cython.int
+ *     n = training_features.shape[0]
  */
   __pyx_tuple__21 = PyTuple_Pack(13, __pyx_n_s_x, __pyx_n_s_k, __pyx_n_s_training_features, __pyx_n_s_training_labels, __pyx_n_s_n, __pyx_n_s_dtype, __pyx_n_s_distances, __pyx_n_s_i, __pyx_n_s_dx, __pyx_n_s_dy, __pyx_n_s_d, __pyx_n_s_sorted, __pyx_n_s_classes); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_knn_classifier_pyx, __pyx_n_s_KNN, 4, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_knn_classifier_py, __pyx_n_s_KNN, 4, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -20618,9 +20651,9 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Enum, __pyx_t_7) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "knn_classifier.pyx":1
+  /* "knn_classifier.py":1
  * import numpy as np             # <<<<<<<<<<<<<<
- * cimport cython
+ * import cython
  * 
  */
   __pyx_t_7 = __Pyx_ImportDottedModule(__pyx_n_s_numpy, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -20628,27 +20661,35 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "knn_classifier.pyx":4
- * cimport cython
+  /* "knn_classifier.py":4
+ * import cython
  * 
- * def KNN(float[::1] x, int k, float[:, :] training_features, int[:] training_labels):             # <<<<<<<<<<<<<<
- *     cdef int n = training_features.shape[0]
- *     dtype = [('label', np.int64), ('distance', np.float64)]
+ * def KNN(x: cython.float[:], k: cython.int, training_features: cython.float[:, :], training_labels: cython.int[:]):             # <<<<<<<<<<<<<<
+ *     n: cython.int
+ *     n = training_features.shape[0]
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_14knn_classifier_1KNN, 0, __pyx_n_s_KNN, NULL, __pyx_n_s_knn_classifier, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_KNN, __pyx_t_7) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_x, __pyx_kp_s_cython_float) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_k, __pyx_kp_s_cython_int) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_training_features, __pyx_kp_s_cython_float_2) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_training_labels, __pyx_kp_s_cython_int_2) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14knn_classifier_1KNN, 0, __pyx_n_s_KNN, NULL, __pyx_n_s_knn_classifier, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_7);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_KNN, __pyx_t_4) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "knn_classifier.pyx":1
+  /* "knn_classifier.py":1
  * import numpy as np             # <<<<<<<<<<<<<<
- * cimport cython
+ * import cython
  * 
  */
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_4) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /*--- Wrapped vars code ---*/
 
@@ -26313,17 +26354,17 @@ no_fail:
 }
 
 /* ObjectToMemviewSlice */
-  static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_float(PyObject *obj, int writable_flag) {
+  static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_ds_float(PyObject *obj, int writable_flag) {
     __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
     __Pyx_BufFmt_StackElem stack[1];
-    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
+    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_STRIDED) };
     int retcode;
     if (obj == Py_None) {
         result.memview = (struct __pyx_memoryview_obj *) Py_None;
         return result;
     }
-    retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
-                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 1,
+    retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, 0,
+                                                 PyBUF_RECORDS_RO | writable_flag, 1,
                                                  &__Pyx_TypeInfo_float, stack,
                                                  &result, obj);
     if (unlikely(retcode == -1))

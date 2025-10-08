@@ -5,7 +5,7 @@ import numpy
 from Cython.Build import cythonize
 
 extensions = [
-    Extension("knn_classifier", ["knn_classifier.pyx"], include_dirs=[numpy.get_include()]),
+    Extension("knn_classifier", ["knn_classifier.py"], include_dirs=[numpy.get_include()]),
 ]
 
 setup(
